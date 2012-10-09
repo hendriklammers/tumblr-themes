@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{Title}</title>
+	{block:Description}
+	<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<meta name="if:Infinite scroll" content="1"/>
+	<meta name="color:Background" content="#fff"/>
+	<meta name="color:Text" content="#121212"/>
+	<meta name="color:Rollover" content="#565656"/>
+	<link rel="shortcut icon" href="{Favicon}">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+	<style>
+	
+	html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+	article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}
+	blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+	body { background-color: {color:Background}; font-family: 'PT Sans', sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; color: {color:Text}; text-align: center; }
+	a { color: {color:Text}; text-decoration: none; -webkit-transition:color 0.2s ease-in; -moz-transition:color 0.2s ease-in; -o-transition:color 0.2s ease-in; transition:color 0.2s ease-in; } a:visited { color: {color:Text}; text-decoration: none; }
+	a:hover { color: {color:Rollover}; text-decoration: none; }
+	a:focus { outline: thin dotted; }
+	h2, h3 { font-weight: 400; }
+	h1 { margin-bottom: 12px; font-size: 36px; line-height: 36px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+	h2 { font-size: 30px; line-height: 36px; }
+	h3 { font-size: 24px; line-height: 36px; margin-bottom: 12px; }
+	.main-container { margin: 0 20px; }
+	.main-navigation { padding-top: 6px; margin-bottom: 42px; }
+	.main-navigation li { display: inline; margin-right: 8px; }
+	.main-navigation li a { display: inline-block; position: relative; font-size: 16px; font-weight: 700; line-height: 24px; }
+	.main-navigation li a:before { content: ''; display: inline-block; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.3em; border-bottom: 1px solid {color:Text};}
+	.site-top { padding-bottom: 24px; }
+	.site-top p.description { font-size: 16px; }
+	.posts { margin-top: 96px; }
+	article.post { padding: 0 0 36px 0; margin-bottom: 24px; }
+	article.post p { margin: 0; }
+	article.post p a { text-decoration: none; font-weight: 700; display: block-inline; position: relative; }
+	article.post p a:before { content: ''; display: block-inline; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.3em; border-bottom: 1px solid {color:Text};}
+	article.post p a:hover {color: {color:Rollover};}
+	article.post img { display: block; }
+	article.post blockquote a {font-weight: 400;}
+	.text p { text-align: justify; }
+	.text h3 { font-weight: 700; }
+	.quote h3 { margin-bottom: 12px; }
+	.photo figcaption { margin-top: 12px; }
+	.photo figure { margin-bottom: 12px; }
+	.photo img { max-width: 100%; }
+	.html_photoset li { margin-bottom: 24px; }
+	.html_photoset li:last-child { margin-bottom: 0; }
+	.link > a { display: inline-block; position: relative; font-size: 24px; line-height: 36px; }
+	.link > a:before { content: ''; display: inline-block; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.3em; border-bottom: 2px solid {color:Text}; }
+	.link p.description { margin-top: 0; }
+	.chat .messages > li { margin-bottom: 12px; }
+	.chat .messages .label { font-weight: 700; }
+	.chat span { line-height: 24px; }
+	.video .caption, .audio .caption { margin: 12px 0; }
+	video { width: 100%; height: auto; }
+	article.post .post-info { margin-top: 12px; }
+	article.post .post-info a { display: block-inline; position: relative; text-decoration: none; font-weight: 700; font-size: 14px}
+	article.post .post-info a:before { content: ''; display: block-inline; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.4em; border-bottom: 1px solid {color:Text}; }
+	article.post .permalink-info { margin-top: 36px; margin-bottom: 12px; font-size: 14px; font-weight: bold; }
+	ol.notes { text-align: left; counter-reset: note; }
+	ol.notes li:before { content: counter(note) '.'; counter-increment: note; display: inline-block; margin-right: 4px; font-size: 14px; }
+	ol.notes a { display: inline-block; position: relative; text-decoration: none; font-weight: 400; }
+	ol.notes a:before { content: ''; display: inline-block; position: absolute; left: 0; height: 1em; width: 100%; margin-top: 0.3em; border-bottom: 1px solid {color:Text};}
+	ol.notes a:hover {color: {color:Rollover};}
+	ol.notes img { display: none; }
+	ol.notes .more_notes_link_container { list-style-type: none; margin-top: 12px; zoom: 1; filter: alpha(opacity=0); opacity: 0; }
+	ol.notes .more_notes_link_container:before { content: ''; display: none; }
+	ol.notes .action:first-child { margin-left: 4px; }
+	ol.notes a.more_notes_link { display: block-inline; position: relative; font-weight: 700; font-size: 16px; text-decoration: none; }
+	ol.notes a.more_notes_link:before {  content: ''; display: block-inline; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.3em; border-bottom: 1px solid {color:Text}; }
+	.page-navigation { padding-bottom: 24px; }
+	.page-navigation ul li { display: inline-block; margin: 0 8px; }
+	.page-navigation ul li a { display: block-inline; position: relative; text-decoration: none; font-weight: 700; font-size: 16px}
+	.page-navigation ul li a:before { content: ''; display: block-inline; position: absolute; left: 0; width: 100%; height: 1em; margin-top: 0.3em; border-bottom: 1px solid {color:Text}; }
+	.hover-show { zoom: 1; filter: alpha(opacity=0); opacity: 0; }
+	@media only screen and (min-width: 480px) { .main-container { width: 440px; margin: 0 auto; } 
+
+	{CustomCSS}
+
+	</style>
+</head>
+<body>
+	<div class="main-container">
+		<header class="site-top">
+			<nav class="main-navigation hover-show">
+				<ul>
+					<li><a href="/archive">Archive</a></li>
+					<li><a href="/random">Random</a></li>
+					<li><a href="{RSS}">RSS</a></li>
+				</ul>
+			</nav>
+			<h1><a href="/">{Title}</a></h1>
+			{block:Description}
+			<p class="description">{Description}</p>
+			{/block:Description}
+		</header>
+		<ol class="posts">
+			<div class="autopagerize_page_element">
+				{block:Posts}
+				<li>
+					<article class="post {PostType}" id="{PostID}">
+
+						<!-- Text post template -->
+						{block:Text}
+						{block:Title}
+						<h3><a href="{Permalink}">{Title}</a></h3>
+						{/block:Title}
+						{Body}
+						{/block:Text}
+
+						<!-- Quote post template -->
+						{block:Quote}
+						<h3 class="text">{Quote}</h3>
+						{block:Source}
+						<div class="source">- <span>{Source}</span></div>
+						{/block:Source}
+						{/block:Quote}
+
+						<!-- Photo post template -->
+						{block:Photo}
+						<figure>
+							{block:IndexPage}
+							<a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
+							{/block:IndexPage}
+							{block:PermalinkPage}
+							{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}">{LinkCloseTag}
+							{block:Caption}
+							<figcaption>{Caption}</figcaption>
+							{/block:Caption}
+							{/block:PermalinkPage}
+						</figure>
+						{/block:Photo}
+
+						<!-- TODO: Photoset design? -->
+						<!-- Photoset post template -->
+						{block:Photoset}
+						{Photoset-500}
+						<!-- {Caption} -->
+						{/block:Photoset}
+
+						<!-- Link post template -->
+						{block:Link}
+						<a href="{URL}" {Target}>{Name}</a>
+						{block:Description}
+						{Description}
+						{/block:Description}
+						{/block:Link}
+
+						<!-- Chat post template -->
+						{block:Chat}
+						{block:Title}
+						<h3>{Title}</h3>
+						{/block:Title}
+						<ul class="messages">
+							{block:Lines} 
+							<li>
+								{block:Label}<span class="label">{Label}</span>{/block:Label}
+								<span class="line">{Line}</span>
+							</li>
+							{/block:Lines}
+						</ul>
+						{/block:Chat}
+
+						<!-- Video post template -->
+						{block:Video}
+						<div class="media">
+							{Video-400}
+						</div>
+						{block:Caption}
+						<div class="caption">{Caption}</div>
+						{/block:Caption}
+						{/block:Video}
+
+						<!-- Audio post template -->
+						{block:Audio}
+						<div class="media">
+							{AudioPlayerGrey}
+						</div>
+						{block:Caption}
+						<div class="caption">{Caption}</div>
+						{/block:Caption}
+						{/block:Audio}
+
+						{block:IndexPage}
+						<div class="post-info hover-show"><a href="{Permalink}">{block:Date}{DayOfMonth} {Month}{/block:Date}{block:NoteCount} / {NoteCountWithLabel}{/block:NoteCount}</a></div>
+						{/block:IndexPage}
+
+						{block:PermalinkPage}
+						<p class="permalink-info hover-show">Posted {block:Date}{TimeAgo}{/block:Date}{block:NoteCount} with {NoteCountWithLabel}{/block:NoteCount}</p>
+						{/block:PermalinkPage}
+
+						{block:PostNotes}
+						{PostNotes}
+						{/block:PostNotes}
+
+					</article>
+				</li>
+				{/block:Posts}
+			</div>
+		</ol>
+		{block:IfNotInfiniteScroll}
+		{block:Pagination}
+		<nav class="page-navigation">
+			<ul>
+				{block:PreviousPage}
+				<li><a href="{PreviousPage}">Previous Page</a></li>
+				{/block:PreviousPage}
+				{block:NextPage}
+				<li><a href="{NextPage}">Next Page</a></li>
+				{/block:NextPage}
+			</ul>
+		</nav>
+		{/block:Pagination}
+		{/block:IfNotInfiniteScroll}
+	</div>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	{block:IfInfiniteScroll}
+	<script type="text/javascript" src="http://codysherman.com/tools/infinite-scrolling/code"></script>
+	{/block:IfInfiniteScroll}
+	<script>
+		(function( $ ){
+
+			$.fn.fitVids = function( options ) {
+				var settings = {
+					customSelector: null
+				};
+
+				var div = document.createElement('div'),
+				ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+
+				div.className = 'fit-vids-style';
+				div.innerHTML = '&shy;<style>         \
+				.fluid-width-video-wrapper {        \
+					width: 100%;                     \
+					position: relative;              \
+					padding: 0;                      \
+				}                                   \
+				\
+				.fluid-width-video-wrapper iframe,  \
+				.fluid-width-video-wrapper object,  \
+				.fluid-width-video-wrapper embed {  \
+					position: absolute;              \
+					top: 0;                          \
+					left: 0;                         \
+					width: 100%;                     \
+					height: 100%;                    \
+				}                                   \
+				</style>';
+
+				ref.parentNode.insertBefore(div,ref);
+
+				if ( options ) {
+					$.extend( settings, options );
+				}
+
+				return this.each(function(){
+					var selectors = [
+					"iframe[src*='player.vimeo.com']",
+					"iframe[src*='www.youtube.com']",
+					"iframe[src*='www.kickstarter.com']",
+					"object",
+					"embed"
+					];
+
+					if (settings.customSelector) {
+						selectors.push(settings.customSelector);
+					}
+
+					var $allVideos = $(this).find(selectors.join(','));
+
+					$allVideos.each(function(){
+						var $this = $(this);
+						if (this.tagName.toLowerCase() == 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; }
+						var height = ( this.tagName.toLowerCase() == 'object' || $this.attr('height') ) ? $this.attr('height') : $this.height(),
+						width = $this.attr('width') ? $this.attr('width') : $this.width(),
+						aspectRatio = height / width;
+						if(!$this.attr('id')){
+							var videoID = 'fitvid' + Math.floor(Math.random()*999999);
+							$this.attr('id', videoID);
+						}
+						$this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%");
+						$this.removeAttr('height').removeAttr('width');
+					});
+				});
+		};
+		})( jQuery );
+
+		(function() {
+
+			// Alternative photoset
+			$('.html_photoset').each(function() {
+				var tumblr_post_id = $(this).attr('id').split('_')[1];
+				$(this).empty();
+				var this_photoset = this;
+				$.getJSON('/api/read/json?id='+ tumblr_post_id +'&callback=?', function(response){
+					var photos = response['posts'][0]['photos'];
+					var photoset_caption = response['posts'][0]['photo-caption'];
+					var photoList = $('<ul class="photolist" />');
+					$.each(photos, function() {
+						var photo_url = this['photo-url-500'];
+						var highRes = this['photo-url-1280'];
+						var link = '{block:IndexPage}' + response['posts'][0]['url'] + '{/block:IndexPage}' + '{block:PermalinkPage}' + highRes + '{/block:PermalinkPage}';
+						var photo_caption = this['caption'];
+						var li = '<li><figure><a href="' + link + '"><img src="' + photo_url + '" alt="photoset photo"></a>{block:PermalinkPage}<figcaption>' + photo_caption + '</figcaption>{/block:PermalinkPage}</figure></li>';
+						photoList.append(li);
+					});
+					$(this_photoset).append(photoList);
+					$(this_photoset).append('{block:PermalinkPage}<div class="photoset-caption">'+ photoset_caption + '</div>{/block:PermalinkPage}');
+				});
+			});
+
+			// Show/hide dates below the posts
+			var posts = $('ol.posts');
+
+			posts.on('mouseenter', 'article.post', function(event) {
+				$(this).find('.hover-show').animate({'opacity': 1}, {duration: 200, queue: false});
+				$(this).find('.more_notes_link_container').animate({'opacity': 1}, {duration: 200, queue: false});
+			}).on('mouseleave', 'article.post', function(event) {
+				$(this).find('.hover-show').animate({'opacity': 0}, {duration: 400, queue: false});
+				$(this).find('.more_notes_link_container').animate({'opacity': 0}, {duration: 400, queue: false});
+			});
+
+			// Show/hide top menu
+			var header = $('header.site-top');
+
+			header.on('mouseenter', function(event) {
+				$(this).find('.main-navigation').animate({'opacity': 1}, {duration: 200, queue: false});
+			}).on('mouseleave', function(event) {
+				$(this).find('.main-navigation').animate({'opacity': 0}, {duration: 400, queue: false});
+			});
+
+			// Resize videos
+			$('article.video').fitVids();
+			
+		}());
+	</script>
+</body>
+</html>
