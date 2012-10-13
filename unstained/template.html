@@ -204,7 +204,7 @@
 		</ol>
 		{block:IfNotInfiniteScroll}
 		{block:Pagination}
-		<nav class="page-navigation">
+		<nav class="page-navigation hover-show">
 			<ul>
 				{block:PreviousPage}
 				<li><a href="{PreviousPage}">Previous Page</a></li>
@@ -331,6 +331,13 @@
 				$(this).find('.main-navigation').animate({'opacity': 1}, {duration: 200, queue: false});
 			}).on('mouseleave', function(event) {
 				$(this).find('.main-navigation').animate({'opacity': 0}, {duration: 400, queue: false});
+			});
+
+			// Show/hide page navigation
+			$('.main-container').on('mouseenter', function(event) {
+				$(this).find('.page-navigation').animate({'opacity': 1}, {duration: 200, queue: false});
+			}).on('mouseleave', function(event) {
+				$(this).find('.page-navigation').animate({'opacity': 0}, {duration: 400, queue: false});
 			});
 
 			// Resize videos
