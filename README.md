@@ -1,4 +1,4 @@
-# My custom Tumblr themes
+# Tumblr themes
 
 * Unstained: [preview](http://unstainedtheme.tumblr.com/)
 * À la mode: [preview](http://alamodetheme.tumblr.com/)
